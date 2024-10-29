@@ -9,5 +9,6 @@ Smallest number can be 2.5 and largest number can be 5.5
 """
 import random
 
+
 random_number = random.randint(1, 100)
 print(random_number)
