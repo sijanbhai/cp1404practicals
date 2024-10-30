@@ -15,12 +15,17 @@ MAX_DECREASE = 0.05  # 5% decrease
 MIN_PRICE = 1.00  # Minimum price of $1
 MAX_PRICE = 100.00  # Maximum price of $100
 INITIAL_PRICE = 10.0  # Starting price
+FILENAME = "stock_prices.txt"  # File to write output
 
 # Initialize the price and day counter
 price = INITIAL_PRICE
 day = 0
 
-print(f"Starting price: ${price:,.2f}")
+# Open the file for writing
+out_file = open(FILENAME, 'w')
+
+# Write the starting price to the file
+print(f"Starting price: ${price:,.2f}", file=out_file)
 
 # Simulation loop
 while MIN_PRICE <= price <= MAX_PRICE:
@@ -41,8 +46,11 @@ while MIN_PRICE <= price <= MAX_PRICE:
     # Update the price based on the change
     price *= (1 + price_change)
 
-    # Print the price at the end of the day
-    print(f"On day {day} price is: ${price:,.2f}")
+    # Write the price at the end of the day to the file
+    print(f"On day {day} price is: ${price:,.2f}", file=out_file)
 
 # Final price output after the loop ends
-print(f"Final price after {day} days: ${price:,.2f}")
+print(f"Final price after {day} days: ${price:,.2f}", file=out_file)
+
+# Close the file
+out_file.close()
