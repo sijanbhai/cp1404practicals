@@ -9,3 +9,10 @@ file = open('name.txt', 'r')
 name_from_file = file.readline().strip()
 file.close()
 print(f"Hi {name_from_file}!")
+
+# Task 3
+with open('numbers.txt', 'r') as file:
+    first_number = int(file.readline().strip())
+    second_number = int(file.readline().strip())
+    result = first_number + second_number
+    print(result)
