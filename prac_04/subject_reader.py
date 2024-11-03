@@ -12,18 +12,16 @@ def main():
 
 
 def load_data():
-    """Read data from file formatted like: subject,lecturer,number of students."""
+    """Read data from file formatted like: subject, lecturer, number of students."""
+    data_list = []  # Initialize an empty list to hold each line's data
     input_file = open(FILENAME)
     for line in input_file:
-        print(line)  # See what a line looks like
-        print(repr(line))  # See what a line really looks like
         line = line.strip()  # Remove the \n
         parts = line.split(',')  # Separate the data into its parts
-        print(parts)  # See what the parts look like (notice the integer is a string)
-        parts[2] = int(parts[2])  # Make the number an integer (ignore PyCharm's warning)
-        print(parts)  # See if that worked
-        print("----------")
+        parts[2] = int(parts[2])  # Convert the student number to an integer
+        data_list.append(parts)  # Add this line's data as a list to data_list
     input_file.close()
+    return data_list  # Return the list of lists
 
 
 main()
