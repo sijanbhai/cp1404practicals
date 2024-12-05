@@ -26,6 +26,9 @@ def main():
     distance_driven = limo.drive(115)
     print(f"Limo drove {distance_driven} km.")
     print(f"Remaining fuel in limo: {limo.fuel}")
+    # Verify the __str__ method directly with str()
+    print(f"String representation of 'my_car': {str(my_car)}")  # Output: My Car, fuel=150, odometer=30
+    print(f"String representation of 'limo': {str(limo)}")  # Output: Limo, fuel=5, odometer=115
 
 
 main()
