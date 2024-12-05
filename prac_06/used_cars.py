@@ -22,6 +22,10 @@ def main():
     print(f"After refueling, limo has fuel: {limo.fuel}")
     # Print the amount of fuel in the limo
     print(f"Final amount of fuel in limo: {limo.fuel}")
+    # Attempt to drive the limo 115 km
+    distance_driven = limo.drive(115)
+    print(f"Limo drove {distance_driven} km.")
+    print(f"Remaining fuel in limo: {limo.fuel}")
 
 
 main()
