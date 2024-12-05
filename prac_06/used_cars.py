@@ -20,6 +20,8 @@ def main():
     # Add 20 more units of fuel to the limo
     limo.add_fuel(20)
     print(f"After refueling, limo has fuel: {limo.fuel}")
+    # Print the amount of fuel in the limo
+    print(f"Final amount of fuel in limo: {limo.fuel}")
 
 
 main()
