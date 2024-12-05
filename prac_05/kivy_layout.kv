@@ -1,5 +1,3 @@
-# This is a Kv file.
-# It contains the declarations of the widgets that will be displayed.
 BoxLayout:
     orientation: 'vertical'
     Label:
@@ -16,3 +14,6 @@ BoxLayout:
             on_press: app.handle_press(-1)
     BoxLayout:
         id: names_box
+    Label:
+        text: "I did this :)"
+        size_hint_y: 0.1  # Occupy 10% of vertical space
