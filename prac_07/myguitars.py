@@ -3,11 +3,14 @@ from guitar import Guitar
 
 
 def main():
-    """Read guitar data from a CSV file and display the details."""
+    """Read guitar data from a CSV file, sort by year, and display details."""
     filename = "guitars.csv"
     guitars = read_guitars_from_file(filename)
 
-    print("\nThese are the guitars:")
+    # Sort the list of guitars by year (oldest to newest)
+    guitars.sort()
+
+    print("\nThese are the guitars (sorted by year):")
     for guitar in guitars:
         vintage_status = " (vintage)" if guitar.is_vintage() else ""
         print(f"{guitar}{vintage_status}")
