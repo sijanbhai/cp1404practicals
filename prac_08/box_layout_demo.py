@@ -16,5 +16,6 @@ class BoxLayoutDemo(App):
             greeting_label.text = f"Hello, {name_input}!"
         else:
             greeting_label.text = "Please enter your name."
+        print('greet')
 
 BoxLayoutDemo().run()
