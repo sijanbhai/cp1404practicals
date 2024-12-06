@@ -33,3 +33,4 @@ my_taxi.drive(100)
 # Print the taxi's details and the current fare after driving 100 km
 print(f"Taxi details after driving 100 km (new fare started): {my_taxi}")
 print(f"Current fare after driving 100 km: ${my_taxi.get_fare():.2f}")
+
