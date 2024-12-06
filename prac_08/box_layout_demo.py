@@ -1,6 +1,7 @@
 from kivy.app import App
 from kivy.lang import Builder
 
+
 class BoxLayoutDemo(App):
     def build(self):
         self.title = "Box Layout Demo"
@@ -8,15 +9,17 @@ class BoxLayoutDemo(App):
         return self.root
 
     def handle_clear(self):
-        # Clear any name input or reset text
-        self.root.ids.output_label.text = 'Enter your name'
+        """Clear the input text field and reset the output label."""
+        self.root.ids.input_name.text = ''  # Reset the TextInput field
+        self.root.ids.output_label.text = ''  # Clear the output label
 
     def handle_greet(self):
-        # Change the label's text to greet the user
-        name = self.root.ids.name_input.text  # Get the text from the name input field
-        if name:  # If the name is not empty
-            self.root.ids.output_label.text = f'Hello, {name}!'  # Greet the user
+        """Update the output label with a greeting based on the input name."""
+        name = self.root.ids.input_name.text
+        if name.strip():  # If the name is not empty or just whitespace
+            self.root.ids.output_label.text = f'Hello, {name}!'
         else:
-            self.root.ids.output_label.text = 'Hello, stranger!'  # Default greeting if name is empty
+            self.root.ids.output_label.text = 'Hello, stranger!'
+
 
 BoxLayoutDemo().run()
