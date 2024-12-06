@@ -36,14 +36,12 @@ def run_tests():
     assert repeat_string("Python", 1) == "Python", "repeat_string failed for n=1"
     assert repeat_string("hi", 2) == "hi hi", "repeat_string failed for n=2"
 
-    car = Car()
-    assert car._odometer == 0, "Car does not set odometer correctly"
+    # Test Car's fuel setting
+    car = Car()  # Default fuel
+    assert car._fuel == 0, "Car does not set fuel correctly (default)"
 
-    # TODO: 2. write assert statements to show if Car sets the fuel correctly
-    # Note that Car's __init__ function sets the fuel in one of two ways:
-    # using the value passed in or the default
-    # You should test both of these
-    car = Car(fuel=10)
+    car = Car(fuel=10)  # Custom fuel
+    assert car._fuel == 10, "Car does not set fuel correctly (custom)"
 
 
 run_tests()
