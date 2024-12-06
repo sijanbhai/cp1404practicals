@@ -16,21 +16,23 @@ def get_wiki_page_details():
             page = wikipedia.page(title, autosuggest=False)
 
             # Print the title, URL, and summary of the page
-            print(f"Page Title: {page.title}")
+            print(f"\nPage Title: {page.title}")
             print(f"URL: {page.url}")
-            print(f"Summary: {page.summary}\n")
+            print(f"Summary: {page.summary[:500]}...\n")  # Print only the first 500 characters of the summary
 
         except wikipedia.exceptions.DisambiguationError as e:
-            print(f"Disambiguation error: There are multiple options for '{title}'.")
-            print(f"Suggestions: {e.options}\n")
-        except wikipedia.exceptions.HTTPTimeoutError:
-            print("The request timed out. Please try again.")
-        except wikipedia.exceptions.RedirectError:
-            print(f"The title '{title}' redirects to another page.")
+            print(f"\nDisambiguation error: '{title}' has multiple possible meanings.")
+            print("Here are some suggestions:")
+            print("\n".join(e.options[:10]))  # Show up to 10 suggestions
+            print("\nTry refining your search.\n")
         except wikipedia.exceptions.PageError:
-            print(f"Page '{title}' does not exist.")
+            print(f"\nPageError: The page '{title}' does not exist on Wikipedia.\n")
+        except wikipedia.exceptions.HTTPTimeoutError:
+            print("\nThe request timed out. Please check your connection and try again.\n")
+        except wikipedia.exceptions.RedirectError:
+            print(f"\nRedirectError: The page '{title}' redirects to another page. Please try a more specific title.\n")
         except Exception as e:
-            print(f"An error occurred: {e}\n")
+            print(f"\nAn unexpected error occurred: {e}\n")
 
 # Run the function to start the program
 if __name__ == "__main__":
