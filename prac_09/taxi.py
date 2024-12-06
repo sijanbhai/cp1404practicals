@@ -1,24 +1,21 @@
-from prac_09.car import Car
-
-
 class Taxi(Car):
     """Specialised version of a Car that includes fare costs."""
 
-    # Class variable shared by all instances of Taxi
-    price_per_km = 1.23  # Default price per kilometer for all taxis
+    price_per_km = 1.23
 
     def __init__(self, name, fuel):
-        """Initialise a Taxi instance, based on parent class Car."""
-        super().__init__(name, fuel)  # Initialise the parent class (Car)
-        self.current_fare_distance = 0  # Start with no fare distance
+        """Initialise a Taxi instance."""
+        super().__init__(name, fuel)
+        self.current_fare_distance = 0
 
     def __str__(self):
         """Return a string like a Car but with current fare distance."""
         return f"{super().__str__()}, {self.current_fare_distance}km on current fare, ${self.price_per_km:.2f}/km"
 
     def get_fare(self):
-        """Return the price for the taxi trip."""
-        return self.price_per_km * self.current_fare_distance
+        """Return the price for the taxi trip, rounded to the nearest 10c."""
+        fare = self.price_per_km * self.current_fare_distance
+        return round(fare * 10) / 10  # Round to nearest 10c
 
     def start_fare(self):
         """Begin a new fare."""
